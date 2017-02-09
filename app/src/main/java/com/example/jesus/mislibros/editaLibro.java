@@ -85,7 +85,6 @@ public class editaLibro extends AppCompatActivity {
             libro.editar(database, values, id);
 
             Intent i = new Intent(this, MainActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
         }
     }
@@ -110,7 +109,6 @@ public class editaLibro extends AppCompatActivity {
         libro.eliminar(database,id);
 
         Intent i = new Intent(this, MainActivity.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
     }
 

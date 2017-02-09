@@ -72,7 +72,6 @@ public class nuevoLibro extends AppCompatActivity {
             libro.insertar(database, values);
 
             Intent i = new Intent(this, MainActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
         }
     }

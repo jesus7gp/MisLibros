@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
-        //Intent i = new Intent(this, lista_actividad.class);
-        //startActivity(i);
         Libros database = new Libros(this);
         SQLiteDatabase db = database.getWritableDatabase();
 
@@ -50,30 +48,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void nuevo(View view){
         Intent i = new Intent(this, nuevoLibro.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
     }
 
     public void edicion(View view, long id){
         Intent i = new Intent(this, editaLibro.class);
         i.putExtra("id_book", id);
-        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(i);
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
         return super.onOptionsItemSelected(item);
     }
 
