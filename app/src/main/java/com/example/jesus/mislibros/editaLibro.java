@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -25,21 +27,7 @@ public class editaLibro extends AppCompatActivity {
         setContentView(R.layout.edi_libro);
         datosLibro();
 
-        Button boton = (Button) findViewById(R.id.button);
-        boton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                eliminarLibro();
-            }
-        });
 
-        Button botoneditar = (Button) findViewById(R.id.button3);
-        botoneditar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editarLibro();
-            }
-        });
     }
 
     public void editarLibro(){
@@ -99,6 +87,34 @@ public class editaLibro extends AppCompatActivity {
                     }
                 })
                 .setNegativeButton("Pfff... mejor no", null).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.guardar).setVisible(false);
+        menu.findItem(R.id.editar).setVisible(true);
+        menu.findItem(R.id.eliminar).setVisible(true);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.editar:
+                editarLibro();
+                return true;
+            case R.id.eliminar:
+                eliminarLibro();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void confirmado(){

@@ -3,8 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.jesus.mislibros.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/guardar"
+        android:icon="@drawable/guardar"
+        android:title="Guardar"
+        android:showAsAction="always|collapseActionView" />
+    <item
+        android:id="@+id/editar"
+        android:icon="@drawable/editar"
+        android:title="Guardar cambios"
+        android:showAsAction="always|collapseActionView" />
+    <item
+        android:id="@+id/eliminar"
+        android:icon="@drawable/borrar"
+        android:title="Eliminar"
+        android:showAsAction="always|collapseActionView" />
 </menu>

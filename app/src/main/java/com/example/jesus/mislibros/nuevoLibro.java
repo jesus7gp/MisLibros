@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -21,13 +23,7 @@ public class nuevoLibro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vista_libro);
 
-        Button boton = (Button) findViewById(R.id.button2);
-        boton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                insertarLibro();
-            }
-        });
+
     }
 
 
@@ -73,6 +69,32 @@ public class nuevoLibro extends AppCompatActivity {
 
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.guardar).setVisible(true);
+        menu.findItem(R.id.editar).setVisible(false);
+        menu.findItem(R.id.eliminar).setVisible(false);
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.guardar:
+                insertarLibro();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

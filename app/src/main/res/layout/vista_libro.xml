@@ -17,7 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="..."
         android:ems="10"
         android:id="@+id/tx_titulo" />
 
@@ -33,7 +32,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="..."
         android:ems="10"
         android:id="@+id/tx_autor" />
 
@@ -49,7 +47,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="..."
         android:ems="10"
         android:id="@+id/tx_editorial" />
 
@@ -71,7 +68,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="..."
             android:ems="10"
             android:id="@+id/tx_isbn"
             android:layout_weight="1" />
@@ -96,7 +92,6 @@
             android:layout_width="93dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="..."
             android:ems="10"
             android:id="@+id/tx_paginas"
             android:layout_weight="0.27" />
@@ -113,7 +108,6 @@
             android:layout_width="114dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="..."
             android:ems="10"
             android:id="@+id/tx_anio" />
 
@@ -159,14 +153,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="..."
         android:ems="10"
         android:id="@+id/tx_resumen" />
-
-    <Button
-        android:text="Guardar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2" />
 
 </LinearLayout>
