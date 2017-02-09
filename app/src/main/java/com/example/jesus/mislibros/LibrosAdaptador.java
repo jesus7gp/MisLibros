@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CursorAdapter;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -29,6 +30,7 @@ public class LibrosAdaptador extends CursorAdapter {
         TextView titulo = (TextView) vista.findViewById(R.id.titulo);
         TextView autor = (TextView) vista.findViewById(R.id.autor);
         RatingBar nota = (RatingBar) vista.findViewById(R.id.ratingBar);
+        ImageView img = (ImageView)  vista.findViewById(R.id.imageView);
 
         String titulo1 = cursor.getString(cursor.getColumnIndex("titulo"));
         String autor1 = cursor.getString(cursor.getColumnIndex("autor"));
@@ -38,5 +40,27 @@ public class LibrosAdaptador extends CursorAdapter {
         titulo.setText(titulo1);
         autor.setText(autor1);
         nota.setRating(rating1);
+
+        switch (generaNumeroAleatorio(0,2)) {
+            case 0:
+                img.setImageResource(R.drawable.libro1);
+                break;
+
+            case 1:
+                img.setImageResource(R.drawable.libro2);
+                break;
+
+            case 2:
+                img.setImageResource(R.drawable.libro3);
+                break;
+
+        }
+
+    }
+
+    public static int generaNumeroAleatorio(int minimo,int maximo){
+
+        int num=(int)Math.floor(Math.random()*(maximo-minimo+1)+(minimo));
+        return num;
     }
 }
