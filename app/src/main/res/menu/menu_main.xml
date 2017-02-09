@@ -6,15 +6,15 @@
         android:id="@+id/guardar"
         android:icon="@drawable/guardar"
         android:title="Guardar"
-        android:showAsAction="always|collapseActionView" />
+        app:showAsAction="always|collapseActionView" />
     <item
         android:id="@+id/editar"
         android:icon="@drawable/editar"
         android:title="Guardar cambios"
-        android:showAsAction="always|collapseActionView" />
+        app:showAsAction="always|collapseActionView" />
     <item
         android:id="@+id/eliminar"
         android:icon="@drawable/borrar"
         android:title="Eliminar"
-        android:showAsAction="always|collapseActionView" />
+        app:showAsAction="always|collapseActionView" />
 </menu>
