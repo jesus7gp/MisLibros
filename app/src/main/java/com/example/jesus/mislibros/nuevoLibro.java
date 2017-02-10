@@ -45,12 +45,7 @@ public class nuevoLibro extends AppCompatActivity {
         EditText resumen = (EditText) findViewById(R.id.tx_resumen);
 
         if(titulo.getText().toString().equals("") || autor.getText().toString().equals("")){
-            Context context = getApplicationContext();
-            CharSequence text = "¡El título y el autor son obligatorios!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            mensaje("¡El título y el autor son obligatorios!");
         }
         else {
 
@@ -69,7 +64,17 @@ public class nuevoLibro extends AppCompatActivity {
 
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
+            mensaje("Se ha insertado un libro.");
         }
+    }
+
+    public void mensaje(String mensaje){
+        Context context = getApplicationContext();
+        CharSequence text = mensaje;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     @Override

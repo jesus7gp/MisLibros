@@ -51,12 +51,7 @@ public class editaLibro extends AppCompatActivity {
 
 
         if(titulo.getText().toString().equals("") || autor.getText().toString().equals("")){
-            Context context = getApplicationContext();
-            CharSequence text = "¡El título y el autor son obligatorios!";
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, text, duration);
-            toast.show();
+            mensaje("¡El título y el autor son obligatorios!");
         }
         else {
             values.put("titulo", titulo.getText().toString());
@@ -74,7 +69,17 @@ public class editaLibro extends AppCompatActivity {
 
             Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
+            mensaje("Se han guardado los cambios.");
         }
+    }
+
+    public void mensaje(String mensaje){
+        Context context = getApplicationContext();
+        CharSequence text = mensaje;
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     public void eliminarLibro(){
@@ -126,6 +131,7 @@ public class editaLibro extends AppCompatActivity {
 
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+        mensaje("Se ha eliminado un libro.");
     }
 
     public void datosLibro() {
