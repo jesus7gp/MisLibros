@@ -27,7 +27,7 @@ public class nuevoLibro extends AppCompatActivity {
     }
 
 
-
+    //Inserta un libro nuevo en la base de datos
     public void insertarLibro() {
         Libros libro = new Libros(this);
         SQLiteDatabase database = libro.getWritableDatabase();

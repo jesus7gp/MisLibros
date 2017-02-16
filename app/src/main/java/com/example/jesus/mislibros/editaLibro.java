@@ -30,6 +30,7 @@ public class editaLibro extends AppCompatActivity {
 
     }
 
+    //Realiza el update del libro en la base de datos
     public void editarLibro(){
         Libros libro = new Libros(this);
         SQLiteDatabase database = libro.getWritableDatabase();
@@ -73,6 +74,7 @@ public class editaLibro extends AppCompatActivity {
         }
     }
 
+    //Función para realizar un toast de forma más simple
     public void mensaje(String mensaje){
         Context context = getApplicationContext();
         CharSequence text = mensaje;
@@ -82,6 +84,7 @@ public class editaLibro extends AppCompatActivity {
         toast.show();
     }
 
+    //Mensaje de confirmación para borrar
     public void eliminarLibro(){
         AlertDialog.Builder alerta = new AlertDialog.Builder(this);
         alerta.setMessage("No fastidies... ¿Lo vas a borrar?").setPositiveButton("Sí",
@@ -92,6 +95,19 @@ public class editaLibro extends AppCompatActivity {
                     }
                 })
                 .setNegativeButton("Pfff... mejor no", null).show();
+    }
+
+    //Se ha confirmado el borrado
+    public void confirmado(){
+        Libros libro = new Libros(this);
+        SQLiteDatabase database = libro.getWritableDatabase();
+        Intent e = getIntent();
+        Long id = e.getLongExtra("id_book", 1L);
+        libro.eliminar(database,id);
+
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        mensaje("Se ha eliminado un libro.");
     }
 
     @Override
@@ -122,18 +138,7 @@ public class editaLibro extends AppCompatActivity {
         }
     }
 
-    public void confirmado(){
-        Libros libro = new Libros(this);
-        SQLiteDatabase database = libro.getWritableDatabase();
-        Intent e = getIntent();
-        Long id = e.getLongExtra("id_book", 1L);
-        libro.eliminar(database,id);
-
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-        mensaje("Se ha eliminado un libro.");
-    }
-
+    //Función encargada de rellenar la vista con los datos del libro que se está editando
     public void datosLibro() {
         Libros libro = new Libros(this);
         SQLiteDatabase database = libro.getWritableDatabase();

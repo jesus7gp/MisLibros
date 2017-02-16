@@ -11,9 +11,6 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-/**
- * Created by JESUS on 31/01/2017.
- */
 
 public class LibrosAdaptador extends CursorAdapter {
     public LibrosAdaptador(Context contexto, Cursor cursor) {
@@ -41,6 +38,7 @@ public class LibrosAdaptador extends CursorAdapter {
         autor.setText(autor1);
         nota.setRating(rating1);
 
+        //Este switch básicamente se encarga de poner una imagen aleatoria
         switch (generaNumeroAleatorio(0,2)) {
             case 0:
                 img.setImageResource(R.drawable.libro1);
@@ -58,6 +56,7 @@ public class LibrosAdaptador extends CursorAdapter {
 
     }
 
+    //Función encargada de generar un número aleatorio
     public static int generaNumeroAleatorio(int minimo,int maximo){
 
         int num=(int)Math.floor(Math.random()*(maximo-minimo+1)+(minimo));

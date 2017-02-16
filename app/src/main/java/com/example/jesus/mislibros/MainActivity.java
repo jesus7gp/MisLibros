@@ -1,6 +1,7 @@
 package com.example.jesus.mislibros;
 
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -36,12 +38,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
 
+        //Se crea la instancia de la clase de la base de datos
         Libros database = new Libros(this);
         SQLiteDatabase db = database.getWritableDatabase();
 
+        //Se indica la consulta en el cursor
         Cursor cursor = db.rawQuery("SELECT * FROM libro", null);
+
+        //lista de la vista principal
         ListView lista = (ListView) findViewById(R.id.lista);
+
+        //Se instancia el adaptador pasándole por parámetro el cursor con su respectiva consulta
         LibrosAdaptador adaptadorlista = new LibrosAdaptador(this,cursor);
+
+        //Se llama al adaptador anteriormente creado
         lista.setAdapter(adaptadorlista);
         lista.setOnItemClickListener(this);
     }
@@ -53,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void edicion(View view, long id){
         Intent i = new Intent(this, editaLibro.class);
+        //Habrá que pasarle la id con putExtra
         i.putExtra("id_book", id);
         startActivity(i);
     }
@@ -65,7 +76,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        //Se accede a edición cuando se pulsa un item de la lista
         edicion(view, id);
     }
+
+
 
 }
